@@ -13,11 +13,11 @@ const forecast = (latitude, longitude, callback) => {
                 if (success === false) {
                     callback(error.info, undefined)
                 } else {
-                    const {weather_descriptions, temperature, feelslike} = current
+                    const {weather_descriptions, temperature, feelslike, humidity} = current
                     // const weather_descriptions = response.body.current.weather_descriptions[0]
                     // const temperature = response.body.current.temperature
                     // const feelslike = response.body.current.feelslike
-                    callback(undefined, weather_descriptions + '. It is currently ' + temperature + ' degress out. It feels like ' + feelslike + ' degress out.')
+                    callback(undefined, weather_descriptions + '. It is currently ' + temperature + ' degress out. It feels like ' + feelslike + ' degress out. The humidity is ' + humidity + '%')
                 }
             } else {
                 callback('Unable to connect to Wheatherstack', undefined)
